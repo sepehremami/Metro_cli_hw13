@@ -55,6 +55,8 @@ class User:
         self.account.display_account_info(self.name)
         return self
 
+
+
 class Menu:
 
     with open('count.txt', 'rb') as f:
@@ -78,11 +80,10 @@ class Menu:
             print()
             print('Select one of the below')
             user_options= {
-                '1' : 'register new user',
-                '2' : 'BankAccount management',
-                '3' : 'Buy Metro Ticket',
-                '4' : 'Log into Account',
-                '5' : 'exit'
+                '1' : 'Register New User',
+                '2' : 'Log in as User',
+                '3' : 'Log in as Administrator',
+                '4' : 'Exit'
                 }
 
             for k , v in enumerate(user_options.items()):
@@ -95,29 +96,46 @@ class Menu:
                 user_obj = User(name, password)
                 with open(f"user{Menu.user_count_increment()}.pickle" , 'wb') as user:
                     pickle.dump(user_obj, user)
-                print('you are now part of METRO')
+                print('You Are Now Part of METRO')
 
-            elif user_input_menu == '4':
-                name = input('Enter username: ')
-                password = input('Enter password: ')
+            elif user_input_menu == '2':
+                objects = []
                 for file in glob.glob("*.pickle"):
-                    objects = []
                     with open(file, 'rb') as user:
                         while True:
                             try:
-                                objects.append(pickle.load(user))
+                                content = pickle.load(user)
+                                objects.append(content)
                             except EOFError:
                                 break
-                        for user in objects:
-                            if user.username == name and user.password == password:
-                                print('you have successfuly logged in')
+                            print(objects,objects[0].username)
+                logged_in_person = []
+                for user in objects:
+                    name = input('Enter username: ')
+                    if user.username == name:
+                         password = input('Enter password: ')
+                         if user.password == password:
+                             print('You Have Successfuly Logged in')
+                             input('C...')
+                             logged_in_person.append(user)
+                             break
+                         else:
+                             print("Wrong Password")
+                             input('C...')
+                             break
+                    else:
+                         print( "No Such Person")
+                         break
 
-
+                print(logged_in_user)
                         # if user.username == name and user.password == password:
                         #     print('you have successfuly loged in')
-            elif user_input_menu == '5':
+            elif user_input_menu == '4':
                 Menu.user_count_save_for_future()
                 break
+
+
+
 
 
 if __name__ == '__main__':
