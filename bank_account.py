@@ -1,5 +1,8 @@
 import pickle
 import glob
+import uuid
+from ticket import ExpirableTicket, Ticket
+from clear import clear
 
 
 class BankAccount:
@@ -18,16 +21,22 @@ class BankAccount:
             print("Insufficient Funds: Charging a $5 fee!")
         return self
 
-    def display_account_info(self,name):
+    def display_account_info(self, name):
         self.balance -= 1
-        print(f"User:{name}'s {self.title} and account balance is ${round(self.balance,2)}.\nCharging 1$ for taking balance!")
-        return self
+        return f"User:{name}'s {self.title} and account balance is ${round(self.balance,2)}.\nCharging 1$ for taking balance!"
+
 
 class User:
     def __init__(self, username, password):
         self.username = username
         self.__password = password
         self.account = BankAccount(title="Main_Account", balance = 0)
+        self.ticket_list = []
+        self.__id = uuid.uuid1()
+
+    @property
+    def id(self):
+        return self.__id
 
     @property
     def password(self):
@@ -43,21 +52,47 @@ class User:
         if npass:
             self._password = npass
 
-    def make_deposit(self, amount, num):
+    def make_deposit(self, amount):
         self.account.deposit(amount)
         return self
 
-    def make_withdraw(self, amount,num):
+    def make_withdraw(self, amount):
         self.account.withdraw(amount)
         return self
 
-    def display_account_info(self,num):
+    def display_account_info(self):
         self.account.display_account_info(self.name)
         return self
+
+    def buy_ticket(self, ticket):
+        self.ticket_list.append(ticket)
+
+    def use_ticket(self, ticket):
+        pass
+
+    def show_ticket_list(self):
+        for ticket in enumerate(self.ticket_list):
+            return ticket
 
 
 
 class Menu:
+    login_menu= {
+        '1' : 'Bank Account Management',
+        '2' : 'Buy Ticket',
+        '3' : 'Log out'}
+
+    bank_acount_menu = {
+        '1' : 'Deposit',
+        '2' : 'Withdraw',
+        '3' : 'Show Balance',
+        '4' : 'Go back...'}
+
+    buy_ticket_menu = {
+        '1' : 'Chargeble',
+        '2' : 'Disposable(you can use it only once)',
+        '3' : 'Date Expirable',
+        '4' : 'Show Ticket List'}
 
     with open('count.txt', 'rb') as f:
         a = f.read().decode('ASCII').strip()
@@ -76,6 +111,7 @@ class Menu:
     @staticmethod
     def run():
         while True:
+            clear()
             print('menu')
             print()
             print('Select one of the below')
@@ -90,50 +126,119 @@ class Menu:
                 print(v)
 
             user_input_menu = input('Choose: ')
+
             if user_input_menu == '1':
+                clear()
                 name = input('Enter username: ')
                 password = input('Enter password: ')
                 user_obj = User(name, password)
-                with open(f"user{Menu.user_count_increment()}.pickle" , 'wb') as user:
+                with open(f"{user_obj.id}.pickle" , 'wb') as user:
                     pickle.dump(user_obj, user)
                 print('You Are Now Part of METRO')
+                input('C...')
 
             elif user_input_menu == '2':
+                clear()
                 objects = []
-                for file in glob.glob("*.pickle"):
-                    with open(file, 'rb') as user:
-                        while True:
-                            try:
-                                content = pickle.load(user)
-                                objects.append(content)
-                            except EOFError:
-                                break
-                            print(objects,objects[0].username)
-                logged_in_person = []
-                for user in objects:
+                user_id = input('Enter Unique ID(Forgot password?(y)): ')
+                log_in_flag = False
+                logged_in_person = None
+                if user_id == 'y':
+                    clear()
+                    for file in glob.glob("*.pickle"):
+                        with open(file, 'rb') as user:
+                            while True:
+                                try:
+                                    content = pickle.load(user)
+                                    objects.append(content)
+                                except EOFError:
+                                    break
+                    # print(objects, type(objects[1].username) )
                     name = input('Enter username: ')
-                    if user.username == name:
-                         password = input('Enter password: ')
-                         if user.password == password:
-                             print('You Have Successfuly Logged in')
-                             input('C...')
-                             logged_in_person.append(user)
-                             break
-                         else:
-                             print("Wrong Password")
-                             input('C...')
-                             break
-                    else:
-                         print( "No Such Person")
-                         break
+                    password = input('Enter password: ')
+                    for user in objects:
+                        # print(user.username , user.password)
+                        if user.username == name:
+                            if user.password == password:
+                                print(f'Your id is:\n{user.id}')
+                                input('C...')
+                                clear()
+                                break
+                            else:
+                                print("Wrong Password")
+                                input('C...')
+                                break
 
-                print(logged_in_user)
+                else:
+                    try:
+                        with open(f"{user_id}.pickle", 'rb') as user:
+                            user_obj = pickle.load(user)
+
+                        logged_in_person = user_obj
+                        log_in_flag = True
+                    except FileNotFoundError:
+                        print("User not found!")
+                        input('C..')
+
+
+
+                # print(logged_in_person)
+                while log_in_flag:
+                    clear()
+                    print(Menu.login_menu)
+                    login_user_input = input("What do you desire? ")
+                    if login_user_input == '1':
+                        print(Menu.bank_acount_menu)
+                        user_input = input("Choose: ")
+                        if user_input == '1':
+                            clear()
+                            amount = input('The amount you want to deposit? ')
+                            print('Shaparak')
+                            input()
+                            logged_in_person.make_deposit(float(amount))
+                            print(logged_in_person.account.balance)
+                            input('C...')
+
+                        elif user_input =='2':
+                            pass
+
+                        elif user_input == '3':
+                            print(logged_in_person.account.display_account_info(logged_in_person.username))
+                            input('C...')
+
+
+                    # injash beautifule(?!)
+                    elif login_user_input == '2':
+                        print(Menu.buy_ticket_menu)
+                        user_ticket_choice  = input('choose: ')
+                        if user_ticket_choice == '3':
+                            print('Would you like to buy?')
+                            logged_in_person.make_withdraw(55)
+                            ex_ticket = ExpirableTicket()
+                            logged_in_person.buy_ticket(ex_ticket)
+                            print(logged_in_person.ticket_list)
+                            input("C...")
+
+                        elif user_ticket_choice == '4':
+                            print(logged_in_person.show_ticket_list())
+                            input('C...')
+
+                    elif login_user_input == '3':
+                        with open(f'{logged_in_person.id}.pickle', 'wb') as user:
+                            pickle.dump(logged_in_person, user)
+                        break
+
+                    elif
+
+
+
+
+
                         # if user.username == name and user.password == password:
                         #     print('you have successfuly loged in')
             elif user_input_menu == '4':
                 Menu.user_count_save_for_future()
                 break
-
 
 
 
