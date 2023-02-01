@@ -3,6 +3,7 @@ import glob
 import uuid
 from ticket import ExpirableTicket, Ticket
 from clear import clear
+from pprint import pprint
 
 
 class BankAccount:
@@ -15,7 +16,7 @@ class BankAccount:
         return self
 
     def withdraw(self, amount):
-        assert self.balance < (self.balance - amount), "Insufficient Funds"
+        assert self.balance > amount, "Insufficient Funds"
         self.balance -= amount
 
     def display_account_info(self, name):
@@ -29,7 +30,7 @@ class User:
     def __init__(self, username, password):
         self.username = username
         self.__password = password
-        self.account = BankAccount(title="Main_Account", balance = 0)
+        self.account = BankAccount(title="Main_Account", balance = 10)
         self.ticket_list = []
         self.__id = uuid.uuid1()
 
@@ -203,6 +204,7 @@ class Menu:
                             pass
 
                         elif user_input == '3':
+                            clear()
                             try:
                                 print(logged_in_person.account.display_account_info(logged_in_person.username))
                                 input('C...')
@@ -213,9 +215,11 @@ class Menu:
 
                     # injash beautifule(?!)
                     elif login_user_input == '2':
-                        print(Menu.buy_ticket_menu)
+                        pprint(Menu.buy_ticket_menu, indent=2)
                         user_ticket_choice  = input('choose: ')
                         if user_ticket_choice == '3':
+
+
 
                             try:
                                 logged_in_person.make_withdraw(55)
@@ -241,7 +245,7 @@ class Menu:
 
 
 # fc0ff53e-a0a8-11ed-a272-a41731ccaf53
-
+# shervin; fd6f9216-a168-11ed-a1bf-a41731ccaf53
 
 
 
