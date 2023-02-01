@@ -20,16 +20,23 @@ buy_ticket_menu = {
 class Ticket(ABC):
 	def __init__(self):
 		self.creation_date = datetime.datetime.now()
+		self.ticket_id = uuid.uuid1()
 
 	@abstractmethod
 	def expire(self):
 		pass
-
+	@abstractmethod
+	def __repr__(self):
+		pass
 class ExpirableTicket(Ticket):
 	def __init__(self):
 		super().__init__()
 		self.expiration_date = self.creation_date + relativedelta(years=1)
 		self.balance = 50
+
+	def __repr__(self):
+		return f'Type: Expirable Ticket\nTicket ID: {self.ticket_id}\nExpiration Date: {self.expiration_date}\nCredit: {self.balance}'
+
 
 	def expire(self):
 		pass

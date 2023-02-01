@@ -15,13 +15,12 @@ class BankAccount:
         return self
 
     def withdraw(self, amount):
+        assert self.balance < (self.balance - amount), "Insufficient Funds"
         self.balance -= amount
-        if self.balance < 0:
-            self.balance -= 5
-            print("Insufficient Funds: Charging a $5 fee!")
-        return self
 
     def display_account_info(self, name):
+
+        assert (self.balance - 1) > 0 , "Insufficient Funds"
         self.balance -= 1
         return f"User:{name}'s {self.title} and account balance is ${round(self.balance,2)}.\nCharging 1$ for taking balance!"
 
@@ -61,7 +60,7 @@ class User:
         return self
 
     def display_account_info(self):
-        self.account.display_account_info(self.name)
+        self.account.display_account_info(self.username)
         return self
 
     def buy_ticket(self, ticket):
@@ -72,7 +71,7 @@ class User:
 
     def show_ticket_list(self):
         for ticket in enumerate(self.ticket_list):
-            return ticket
+            yield ticket
 
 
 
@@ -135,6 +134,7 @@ class Menu:
                 with open(f"{user_obj.id}.pickle" , 'wb') as user:
                     pickle.dump(user_obj, user)
                 print('You Are Now Part of METRO')
+                print(f'Your Metro ID: {user_obj.id}')
                 input('C...')
 
             elif user_input_menu == '2':
@@ -203,8 +203,12 @@ class Menu:
                             pass
 
                         elif user_input == '3':
-                            print(logged_in_person.account.display_account_info(logged_in_person.username))
-                            input('C...')
+                            try:
+                                print(logged_in_person.account.display_account_info(logged_in_person.username))
+                                input('C...')
+                            except AssertionError as e:
+                                print (e)
+                                input('C...')
 
 
                     # injash beautifule(?!)
@@ -212,15 +216,22 @@ class Menu:
                         print(Menu.buy_ticket_menu)
                         user_ticket_choice  = input('choose: ')
                         if user_ticket_choice == '3':
-                            print('Would you like to buy?')
-                            logged_in_person.make_withdraw(55)
-                            ex_ticket = ExpirableTicket()
-                            logged_in_person.buy_ticket(ex_ticket)
-                            print(logged_in_person.ticket_list)
-                            input("C...")
+
+                            try:
+                                logged_in_person.make_withdraw(55)
+                                ex_ticket = ExpirableTicket()
+                                logged_in_person.buy_ticket(ex_ticket)
+                                print(logged_in_person.ticket_list)
+                                input("C...")
+                            except AssertionError as e:
+                                print(e)
+                                input('C...')
+
+
 
                         elif user_ticket_choice == '4':
-                            print(logged_in_person.show_ticket_list())
+                            for i in (logged_in_person.show_ticket_list()):
+                                print(i)
                             input('C...')
 
                     elif login_user_input == '3':
@@ -228,8 +239,8 @@ class Menu:
                             pickle.dump(logged_in_person, user)
                         break
 
-                    elif
 
+# fc0ff53e-a0a8-11ed-a272-a41731ccaf53
 
 
 
@@ -240,7 +251,10 @@ class Menu:
                 Menu.user_count_save_for_future()
                 break
 
-
+# if self.__check_minimum_balance(amount):
+# raise BankAccount.MinBalanceError("NOT Enough balance to withdraw!")
+# self.__balance -= amount
+# self.__balance -= self.WAGE_AMOUNT
 
 
 if __name__ == '__main__':
