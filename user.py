@@ -8,12 +8,13 @@ class User:
     def __init__(self, username, password):
         self.username = username
         self.__password = password
-        self.account = BankAccount(title="Main_Account", balance = 10)
+        self.account = BankAccount(title="Main_Account", balance=10)
         self.ticket_list = []
         self.__id = uuid.uuid1()
+        banned_user = False
 
         logging.basicConfig(filename='user_instances.log', level=logging.INFO,
-        format='%(asctime)s %(message)s', datefmt='%d/%m/%Y %I:%M:%S %p')
+                            format='%(asctime)s %(message)s', datefmt='%d/%m/%Y %I:%M:%S %p')
         logging.info('User instance created: name=%s, id=%r', self.username, self.__id)
 
     @property
@@ -49,7 +50,6 @@ class User:
     def buy_ticket(self, ticket):
         self.ticket_list.append(ticket)
 
-
     def make_trip(self, location):
         pass
 
@@ -59,14 +59,13 @@ class User:
 
     def use_ticket_byid(self, ticket_id):
         for ticket in self.ticket_list:
-            print(ticket)
+            # print(ticket)
             if ticket_id == str(ticket.ticket_id):
                 ticket.use_ticket()
                 self.ticket_validation(ticket)
 
     def charge_chargeble_ticket(self, number, amount):
         self.ticket_list[number - 1].charge_ticket(amount)
-
 
     def ticket_validation(self, ticket):
         if ticket.check_expiration():
@@ -76,10 +75,5 @@ class User:
         for ticket in (self.ticket_list):
             yield ticket
 
-    def show_account_information(self):
-        return f"""
-                    username:{self.username}
-                    user_id:{self.__id}
-                    """
-
-
+    def __repr__(self):
+        return f"""\n\tusername:{self.username}\n\tuser_id:{self.__id}"""

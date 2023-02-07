@@ -10,4 +10,6 @@ class Trip:
     def check_ticket_expired(self, ticket: Ticket):
         pass
 
+    
+
 
