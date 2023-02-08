@@ -1,8 +1,10 @@
- 
+import os
+import pickle
 import unittest
 from bank import BankAccount
 from metro import User, Admin
 from metro import ChargebleTicket, ExpirableTicket, DisposableTicket
+
 
 class TestUser(unittest.TestCase):
     def setUp(self):
@@ -24,31 +26,31 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.user.account.balance, 5)
 
     def test_buy_ticket(self):
-        ticket = Ticket(location="New York")
+        ticket = ChargebleTicket()
         self.user.buy_ticket(ticket)
         self.assertEqual(len(self.user.ticket_list), 1)
         self.assertEqual(self.user.ticket_list[0].location, "New York")
 
     def test_use_ticket_bynumber(self):
-        ticket = Ticket(location="New York")
+        ticket = ExpirableTicket()
         self.user.buy_ticket(ticket)
         self.user.use_ticket_bynumber(1)
         self.assertEqual(len(self.user.ticket_list), 0)
 
     def test_use_ticket_byid(self):
-        ticket = Ticket(location="New York")
+        ticket = ChargebleTicket()
         self.user.buy_ticket(ticket)
         self.user.use_ticket_byid(str(ticket.ticket_id))
         self.assertEqual(len(self.user.ticket_list), 0)
 
     def test_charge_chargeble_ticket(self):
-        ticket = ChargebleTicket(location="New York")
+        ticket = ChargebleTicket()
         self.user.buy_ticket(ticket)
-        self.user.charge_chargeble_ticket(1, 20)
+        self.user.charge_chargeble_ticket(20)
         self.assertEqual(self.user.ticket_list[0].amount_left, 20)
 
     def test_show_ticket_list(self):
-        ticket = Ticket(location="New York")
+        ticket = ExpirableTicket()
         self.user.buy_ticket(ticket)
         ticket_list = list(self.user.show_ticket_list())
         self.assertEqual(len(ticket_list), 1)
@@ -66,7 +68,6 @@ class TestAdmin(unittest.TestCase):
         self.ticket = DisposableTicket()
 
     def test_create_new_admin(self):
-        # create_new_admin is not implemented, check it raises NotImplementedError
         with self.assertRaises(NotImplementedError):
             self.admin.create_new_admin()
 
@@ -113,53 +114,31 @@ class TestAdmin(unittest.TestCase):
         filename = f"{self.user.id}.pickle"
         banned_user = self.admin.find_user(filename, path)
         self.assertTrue(banned_user.banned)
-        # os.remove(f"C:/Users/DearUser/Desktop/metro-gp/user/{self.user.id}.pickle")
 
     def test_delete_ticket_by_id(self):
-        # create an admin instance
-        admin = Admin()
-
-        # create two tickets
-        ticket1 = Ticket("issue1", "description1")
-        ticket2 = Ticket("issue2", "description2")
-
-        # add the tickets to the admin's ticket list
+        admin = Admin('admin', 'sepehr2#221')
+        ticket1 = ChargebleTicket()
+        ticket2 = ChargebleTicket()
         admin.add_ticket(ticket1)
         admin.add_ticket(ticket2)
-
-        # check that the tickets have been added
-        self.assertEqual(len(admin.tickets), 2)
-
-        # delete the first ticket by id
+        self.assertEqual(len(admin.ticket_list), 2)
         admin.delete_ticket_by_id(ticket1.id)
-
-        # check that the first ticket has been deleted
-        self.assertEqual(len(admin.tickets), 1)
-        self.assertNotIn(ticket1, admin.tickets)
-        self.assertIn(ticket2, admin.tickets)
+        self.assertEqual(len(admin.ticket_list), 1)
+        self.assertNotIn(ticket1, admin.ticket_list)
+        self.assertIn(ticket2, admin.ticket_list)
 
     def test_delete_ticket_by_id_with_invalid_id(self):
-        # create an admin instance
         admin = Admin()
-
-        # create two tickets
-        ticket1 = Ticket("issue1", "description1")
-        ticket2 = Ticket("issue2", "description2")
-
-        # add the tickets to the admin's ticket list
+        ticket1 = ChargebleTicket()
+        ticket2 = ChargebleTicket()
         admin.add_ticket(ticket1)
         admin.add_ticket(ticket2)
-
-        # check that the tickets have been added
-        self.assertEqual(len(admin.tickets), 2)
-
-        # try to delete a ticket with an invalid id
+        self.assertEqual(len(admin.ticket_list), 2)
         admin.delete_ticket_by_id("invalid_id")
+        self.assertEqual(len(admin.ticket_list), 2)
+        self.assertIn(ticket1, admin.ticket_list)
+        self.assertIn(ticket2, admin.ticket_list)
 
-        # check that no tickets have been deleted
-        self.assertEqual(len(admin.tickets), 2)
-        self.assertIn(ticket1, admin.tickets)
-        self.assertIn(ticket2, admin.tickets)
 
 if __name__ == '__main__':
     unittest.main()

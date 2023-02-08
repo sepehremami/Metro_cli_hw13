@@ -143,7 +143,7 @@ class Admin(User):
             print(f'{root}\n{dirname}\n{files}')
             try:
                 with open(files, 'rb') as user:
-                    result.append(pickle.load(user).username)
+                    results.append(pickle.load(user).username)
                     print(results)
             except Exception:
                 return True
@@ -160,7 +160,6 @@ class Admin(User):
     def save_user(self, path="admins"):
         with open(f"{path}/{self.id}.pickle", 'wb') as user:
             pickle.dump(self, user)
-
 
     def ban_user(self, user : User):
         user.banned_user = True

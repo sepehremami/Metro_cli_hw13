@@ -3,20 +3,9 @@ import glob
 import json
 import logging
 import os
-from metro import Admin, User, clear, ChargebleTicket, ExpirableTicket, DisposableTicket
-
-from exceptions import *
 from pprint import pprint
-logging.basicConfig(filename='metro.log', level=logging.DEBUG,
-                    format='%(asctime)s %(levelname)s %(name)s %(message)s %(module)s')
-
-logger = logging.getLogger(__name__)
-error_logger = logging.getLogger('error_logger')
-error_f_h = logging.FileHandler('errors.log')
-error_f_f = logging.Formatter('%(asctime)s - %(message)s %(name)s %(message)s %(module)s')
-error_f_h.setFormatter(error_f_f)
-error_logger.addHandler(error_f_h)
-
+from metro import Admin, User, clear, ChargebleTicket, ExpirableTicket, DisposableTicket
+from exceptions import *
 
 
 menu = '''
@@ -35,6 +24,17 @@ admin_pyfig = '''
 /_/   \_\____/|_|  |_|___|_| \_|
 '''
 
+logging.basicConfig(filename='metro.log', level=logging.DEBUG,
+                    format='%(pastime)s %(levelness)s %(name)s %(message)s %(module)s')
+
+logger = logging.getLogger(__name__)
+error_logger = logging.getLogger('error_logger')
+error_f_h = logging.FileHandler('errors.log')
+error_f_f = logging.Formatter('%(pastime)s - %(message)s %(name)s %(message)s %(module)s')
+error_f_h.setFormatter(error_f_f)
+error_logger.addHandler(error_f_h)
+
+
 def terminal_dictionary_display(dictionary):
     print(json.dumps(dictionary, indent=4))
 
@@ -44,7 +44,6 @@ def show_ticket(person, generator):
     for i in enumerate(person.show_ticket_list(), 1):
         temp.append(i)
     return temp
-
 
 
 class Menu:
@@ -61,24 +60,25 @@ class Menu:
         '4': 'Go back...'}
 
     buy_ticket_menu = {
-        '1': 'Chargeble',
+        '1': 'Chargeable',
         '2': 'Disposable(you can use it only once)',
         '3': 'Date Expirable',
         '4': 'Show Ticket List',
-        '5': 'Charge Charble card'}
+        '5': 'Charge Chargeable card'}
 
     admin_menu = {
         '1': 'CREATE NEW ADMIN',
         '2': 'BAN USER',
-        '3': 'TICKET EIDT TOOLS',
+        '3': 'TICKET EDIT TOOLS',
         '4': 'Log out'
-            }
+    }
 
     admin_ticket = {
         '1': 'CREATE TICKET',
         '2': 'EDIT TICKETS',
         '3': 'DELETE TICKET'
-            }
+    }
+
     @staticmethod
     def extract_pickle_files(list_of_objs: list, file_path):
         for file in glob.glob(f"{file_path}/*.pickle"):
@@ -107,10 +107,9 @@ class Menu:
                         # print(a)
                         if name == a:
                             return True
-                except Exception as e :
+                except Exception as e:
                     print(e)
         return False
-
 
     @staticmethod
     def run():
@@ -170,10 +169,10 @@ class Menu:
                     password = input('Enter password: ')
                     for user in objects:
                         if user.username == name and user.password == password:
-                                print(f'Your id is:\n{user.id}')
-                                input('C...')
-                                clear()
-                                break
+                            print(f'Your id is:\n{user.id}')
+                            input('C...')
+                            clear()
+                            break
                     else:
                         print("Wrong Password or username")
                         input('C...')
@@ -188,7 +187,7 @@ class Menu:
                         logger.info("%s has successfuly logged in", logged_in_person.username)
                         if logged_in_person.banned_user:
                             log_in_flag = False
-                            input3("You have been banned from metro\nvisit this link to get more information\ncontact admin at Admin@admin.mail to remove ban")
+                            input("You have been banned from metro\nvisit this link to get more information/\ncontact admin at Admin@admin.mail to remove ban")
                     except FileNotFoundError:
                         logger.error("User not found!")
                         print("User Not Found!")
@@ -246,9 +245,9 @@ class Menu:
                         clear()
                         terminal_dictionary_display(Menu.buy_ticket_menu)
                         user_ticket_choice = input('choose: ')
-                        #BUY CHARGEBLE TICKET
+                        # BUY CHARGEBLE TICKET
 
-                        tl = ["ChargebleTicket", "DisposableTicket", "ExpirableTicket" ]
+                        tl = ["ChargebleTicket", "DisposableTicket", "ExpirableTicket"]
                         c_flag = False
                         if user_ticket_choice == '1':
                             command = tl[0] + "()"
@@ -374,9 +373,9 @@ class Menu:
                             filename = f'{user_id}.pickle'
                             try:
                                 user = the_admin.find_user(filename, './users')
-                                print(user ,'\n')
+                                print(user, '\n')
                                 x = input("Are you sure?(y/n)")
-                                authentication = True if x =='y' else False
+                                authentication = True if x == 'y' else False
                                 print(authentication)
                                 if authentication is True:
                                     the_admin.ban_user(user)
@@ -421,9 +420,9 @@ class Menu:
                                 ticket_id = input("user ID to ban: ")
                                 filename = f'{user_id}.pickle'
                                 ticket = the_admin.find_ticket(filename, './tickets')
-                                print(ticket ,'\n')
+                                print(ticket, '\n')
                                 x = input("Are you sure?(y/n)")
-                                authentication = True if x =='y' else False
+                                authentication = True if x == 'y' else False
                                 if authentication is True:
                                     the_admin.ban_user(user)
                                     input()
