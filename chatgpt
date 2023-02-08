@@ -1,6 +1,0 @@
-suppose we have a class named Ali and ali has a list of courses
-class Ali:
-    list_of_courses = []
-in ht edirectory that the python script is running there is a another directory called courses
-and every course is also an object of the class Course which has some attributes
-Write a programm that loads the contents of this directory intochatgp list_of_courses in Ali class at every runtime

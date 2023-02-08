@@ -11,7 +11,7 @@ class User:
         self.account = BankAccount(title="Main_Account", balance=10)
         self.ticket_list = []
         self.__id = uuid.uuid1()
-        banned_user = False
+        self.banned_user = False
 
         logging.basicConfig(filename='user_instances.log', level=logging.INFO,
                             format='%(asctime)s %(message)s', datefmt='%d/%m/%Y %I:%M:%S %p')
@@ -71,9 +71,17 @@ class User:
         if ticket.check_expiration():
             self.ticket_list.remove(ticket)
 
-    def show_ticket_list(self):
-        for ticket in (self.ticket_list):
-            yield ticket
+    def show_ticket_list(self, index=None):
+        if index:
+            return self.ticket_list[index]
+        return self.ticket_list
+
+    def update_user(self):
+        with open(f"users/{self.id}.pickle", 'wb') as user:
+            pickle.dump(self, user)
 
     def __repr__(self):
         return f"""\n\tusername:{self.username}\n\tuser_id:{self.__id}"""
+
+a = User('sepehr', 'emami')
+print(a.account)
