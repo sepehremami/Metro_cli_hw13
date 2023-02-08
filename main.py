@@ -25,12 +25,12 @@ admin_pyfig = '''
 '''
 
 logging.basicConfig(filename='metro.log', level=logging.DEBUG,
-                    format='%(pastime)s %(levelness)s %(name)s %(message)s %(module)s')
+                    format='%(asctime)s %(name)s %(message)s %(module)s')
 
 logger = logging.getLogger(__name__)
 error_logger = logging.getLogger('error_logger')
 error_f_h = logging.FileHandler('errors.log')
-error_f_f = logging.Formatter('%(pastime)s - %(message)s %(name)s %(message)s %(module)s')
+error_f_f = logging.Formatter('%(asctime)s - %(message)s %(name)s %(message)s %(module)s')
 error_f_h.setFormatter(error_f_f)
 error_logger.addHandler(error_f_h)
 
