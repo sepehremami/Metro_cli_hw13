@@ -5,13 +5,13 @@ import uuid
 from bank import BankAccount
 from exceptions import *
 #
-# admin_logger = logging.getLogger('Admin_logger')
-# admin_logger.setLevel(logging.INFO)
-# admin_f_h = logging.FileHandler('Admins.log')
-# admin_f_f = logging.Formatter('%(asctime)s - %(message)s')
-# admin_f_h.setFormatter(admin_f_f)
-# admin_f_h.setLevel(level=logging.INFO)
-# admin_logger.addHandler(admin_f_h)
+admin_logger = logging.getLogger('Admin_logger')
+admin_logger.setLevel(logging.INFO)
+admin_f_h = logging.FileHandler('Admins.log')
+admin_f_f = logging.Formatter('%(asctime)s - %(message)s')
+admin_f_h.setFormatter(admin_f_f)
+admin_f_h.setLevel(level=logging.INFO)
+admin_logger.addHandler(admin_f_h)
 
 
 
@@ -56,7 +56,7 @@ class User:
     @staticmethod
     def _validate_password(_npass):
         special = ('#', '@', '&', '?', '!', '*', '$')
-        assert 8 <= len(_npass) <= 16, 'Length must be between 8 and 16'
+        assert 8 <= len(_npass) <= 16, 'Password length must be between 8 and 16'
         #assert npass.isalnum(), ValueError('must contain character and digits')
         assert (not _npass.isalpha() and not _npass.isdigit()), 'must contain character and digits'
         assert [i for i in _npass if i in special], SpecialCharError('Must contain special charachter')
@@ -117,12 +117,14 @@ class User:
 class Admin(User):
     def __init__(self, username, password):
         super().__init__(username, password)
+        admin_logger.info("%s created", self.username)
 
     def create_new_admin(self):
         pass
 
     def make_ticket(self, ticket):
         self.ticket_list.append(ticket)
+        admin_logger.info("%s created", ticket)
 
     def find_user(self, filename, search_path):
         result = []
@@ -146,13 +148,16 @@ class Admin(User):
         with open(f"{path}/{self.id}.pickle", 'wb') as user:
             pickle.dump(self, user)
 
+
     def ban_user(self, user : User):
         user.banned_user = True
+        admin_logger.info("%s banned user", user.username)
         # self.__class__.ticket_list.append()
 
     def delete_ticket_by_id(self, ticket_id):
         os.chdir('tickets')
         os.system(f'del {ticket_id}.pickle' if os.name =='nt' else f"rm {ticket_id}.pickle")
+        admin_logger.info("%s ticket deleted", ticket_id)
         input()
 #
 # obj = Admin('admin', 'admin')

@@ -294,3 +294,6 @@
 2023-02-08 18:28:35,453 INFO __main__ sepehr has successfuly deposited 100 main
 2023-02-08 18:28:39,199 INFO ticket_logger ticket created ticket
 2023-02-08 18:28:39,199 INFO __main__ sepehr bought ChargebleTicket main
+2023-02-08 18:52:05,460 ERROR error_logger Length must be between 8 and 16 main
+2023-02-08 18:59:22,533 ERROR __main__ User not found! main
+2023-02-08 19:00:17,971 ERROR __main__ User not found! main

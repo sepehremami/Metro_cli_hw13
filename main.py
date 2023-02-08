@@ -169,6 +169,7 @@ class Menu:
                             input3("You have been banned from metro\nvisit this link to get more information\ncontact admin at Admin@admin.mail to remove ban")
                     except FileNotFoundError:
                         logger.error("User not found!")
+                        print("User Not Found!")
                         input('C..')
                 # input(logged_in_person.banned_user)
 
@@ -314,14 +315,13 @@ class Menu:
                 admin_password = input('\tEnter password: ')
                 admin_objs = []
                 Menu.extract_pickle_files(admin_objs, "admins")
-                # print(admin_objs)
-                # input()
                 logged_in_admin = False
                 the_admin = object
                 for admin in admin_objs:
                     if admin.username == admin_username and admin.password == admin_password:
                         logged_in_admin = True
                         the_admin = admin
+                        logger.info("admin tried to log in")
 
                 if not logged_in_admin:
                     clear()
@@ -358,7 +358,6 @@ class Menu:
                                 print(authentication)
                                 if authentication is True:
                                     the_admin.ban_user(user)
-
                                     print("User banned successfuly!")
                                     input()
                                 else:
