@@ -297,3 +297,65 @@
 2023-02-08 18:52:05,460 ERROR error_logger Length must be between 8 and 16 main
 2023-02-08 18:59:22,533 ERROR __main__ User not found! main
 2023-02-08 19:00:17,971 ERROR __main__ User not found! main
+2023-02-08 20:12:30,676 ERROR error_logger Password length must be between 8 and 16 main
+2023-02-08 20:12:37,924 INFO root User instance created: name=sepehr, id=UUID('98a2fe96-a7cf-11ed-9099-a41731ccaf53') human
+2023-02-08 20:21:17,427 INFO root User instance created: name=sepher, id=UUID('ce48e2da-a7d0-11ed-a8f0-a41731ccaf53') human
+2023-02-08 20:21:27,451 INFO root User instance created: name=sepehr, id=UUID('d442653a-a7d0-11ed-a8f0-a41731ccaf53') human
+2023-02-08 20:21:55,653 INFO root User instance created: name=sepehr, id=UUID('e511b4d8-a7d0-11ed-a554-a41731ccaf53') human
+2023-02-08 20:22:02,773 ERROR error_logger This username is already taken main
+2023-02-08 20:22:15,239 INFO root User instance created: name=sepehr, id=UUID('f0be57a0-a7d0-11ed-93d0-a41731ccaf53') human
+2023-02-08 20:37:37,067 INFO root User instance created: name=sepehr, id=UUID('16320296-a7d3-11ed-a823-a41731ccaf53') human
+2023-02-08 20:37:52,908 ERROR error_logger This username is already taken main
+2023-02-08 20:38:08,368 INFO root User instance created: name=milad, id=UUID('28da2a90-a7d3-11ed-a823-a41731ccaf53') human
+2023-02-08 20:38:20,236 ERROR error_logger This username is already taken main
+2023-02-08 20:38:56,723 INFO root User instance created: name=milad, id=UUID('45ac96b2-a7d3-11ed-97a3-a41731ccaf53') human
+2023-02-08 20:44:29,464 ERROR error_logger Password length must be between 8 and 16 main
+2023-02-08 20:44:41,005 INFO root User instance created: name=sepehr, id=UUID('12e1ebc8-a7d4-11ed-bfe0-a41731ccaf53') human
+2023-02-08 20:45:09,888 INFO root User instance created: name=sepehr, id=UUID('24190868-a7d4-11ed-81de-a41731ccaf53') human
+2023-02-08 20:46:49,181 INFO root User instance created: name=sepehr, id=UUID('5f47ea8a-a7d4-11ed-8f40-a41731ccaf53') human
+2023-02-08 20:47:33,902 INFO root User instance created: name=sepehr, id=UUID('79efcc18-a7d4-11ed-89b0-a41731ccaf53') human
+2023-02-08 20:47:39,396 ERROR error_logger This username is already taken main
+2023-02-08 20:47:48,874 ERROR error_logger Password length must be between 8 and 16 main
+2023-02-08 20:47:57,397 INFO root User instance created: name=milad, id=UUID('87f0d708-a7d4-11ed-89b0-a41731ccaf53') human
+2023-02-08 20:48:06,685 ERROR error_logger This username is already taken main
+2023-02-08 20:48:17,129 INFO root User instance created: name=sepehr, id=UUID('93b3c924-a7d4-11ed-b38a-a41731ccaf53') human
+2023-02-08 20:49:25,043 INFO root User instance created: name=sepehr, id=UUID('bc2e9294-a7d4-11ed-b7ef-a41731ccaf53') human
+2023-02-08 20:52:33,888 INFO root User instance created: name=sepehr, id=UUID('2cbe182c-a7d5-11ed-823e-a41731ccaf53') human
+2023-02-08 20:52:41,639 INFO root User instance created: name=sepher, id=UUID('315cdc1a-a7d5-11ed-823e-a41731ccaf53') human
+2023-02-08 20:54:05,571 INFO root User instance created: name=sepehr, id=UUID('6363d70e-a7d5-11ed-be67-a41731ccaf53') human
+2023-02-08 20:54:35,687 ERROR error_logger This username is already taken main
+2023-02-08 20:58:37,051 INFO root User instance created: name=spehr, id=UUID('053472fa-a7d6-11ed-8397-a41731ccaf53') human
+2023-02-08 20:58:45,720 INFO root User instance created: name=sepehr, id=UUID('0a5f3558-a7d6-11ed-8397-a41731ccaf53') human
+2023-02-08 21:01:47,704 INFO root User instance created: name=sepehr, id=UUID('76d7bd0e-a7d6-11ed-abd4-a41731ccaf53') human
+2023-02-08 21:01:54,951 ERROR error_logger This username is already taken main
+2023-02-08 21:02:06,253 INFO root User instance created: name=milad, id=UUID('81e61c86-a7d6-11ed-abd4-a41731ccaf53') human
+2023-02-08 21:02:33,329 INFO root User instance created: name=sepehr, id=UUID('92098260-a7d6-11ed-b277-a41731ccaf53') human
+2023-02-08 21:03:08,954 INFO root User instance created: name=milad, id=UUID('a745768e-a7d6-11ed-b277-a41731ccaf53') human
+2023-02-08 21:03:51,186 INFO root User instance created: name=sepehr, id=UUID('c071ae34-a7d6-11ed-834a-a41731ccaf53') human
+2023-02-08 21:03:58,819 ERROR error_logger This username is already taken main
+2023-02-08 21:04:12,440 INFO root User instance created: name=milad, id=UUID('cd1caca6-a7d6-11ed-834a-a41731ccaf53') human
+2023-02-08 21:04:21,918 ERROR error_logger This username is already taken main
+2023-02-08 21:05:43,938 ERROR error_logger This username is already taken main
+2023-02-08 21:05:49,713 ERROR error_logger This username is already taken main
+2023-02-08 21:06:41,023 INFO root User instance created: name=sepehr, id=UUID('25aca2c2-a7d7-11ed-8693-a41731ccaf53') human
+2023-02-08 21:07:18,519 ERROR error_logger Password length must be between 8 and 16 main
+2023-02-08 21:07:32,856 INFO root User instance created: name=dsfs23, id=UUID('4491d3a6-a7d7-11ed-8693-a41731ccaf53') human
+2023-02-08 21:07:42,606 ERROR error_logger Password length must be between 8 and 16 main
+2023-02-08 21:07:50,585 INFO root User instance created: name=ewewe3, id=UUID('4f22f35e-a7d7-11ed-8693-a41731ccaf53') human
+2023-02-08 22:03:12,823 INFO root User instance created: name=sepehr, id=UUID('0b584036-a7df-11ed-beb7-a41731ccaf53') human
+2023-02-08 22:03:25,022 ERROR error_logger Must contain special charachters: ('#', '@', '&', '?', '!', '*', '$') main
+2023-02-08 22:03:32,429 INFO root User instance created: name=sepehr, id=UUID('1707e21a-a7df-11ed-beb7-a41731ccaf53') human
+2023-02-08 22:35:27,623 INFO root User instance created: name=sepehr, id=UUID('8c934750-a7e3-11ed-8e8b-a41731ccaf53') human
+2023-02-08 22:35:34,828 INFO root User instance created: name=sepehr, id=UUID('90deb182-a7e3-11ed-8e8b-a41731ccaf53') human
+2023-02-08 22:43:24,923 ERROR error_logger Must contain special charachters: ('#', '@', '&', '?', '!', '*', '$') main
+2023-02-08 22:44:42,080 ERROR error_logger Password length must be between 8 and 16 main
+2023-02-08 22:47:44,781 ERROR __main__ User not found! main
+2023-02-08 22:49:37,448 ERROR error_logger Password length must be between 8 and 16 main
+2023-02-08 22:55:07,704 INFO root User instance created: name=sepehr, id=UUID('4bf56040-a7e6-11ed-8358-a41731ccaf53') human
+2023-02-08 23:01:20,119 ERROR error_logger Duplicate Username main
+2023-02-08 23:01:29,038 ERROR error_logger Duplicate Username main
+2023-02-08 23:01:35,695 ERROR error_logger Duplicate Username main
+2023-02-08 23:11:36,087 ERROR error_logger Duplicate Username main
+2023-02-08 23:11:46,088 ERROR error_logger Duplicate Username main
+2023-02-08 23:11:49,112 ERROR error_logger Duplicate Username main
+2023-02-08 23:11:59,994 ERROR error_logger Password length must be between 8 and 16 main

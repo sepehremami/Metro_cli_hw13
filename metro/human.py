@@ -2,6 +2,7 @@ import logging
 import pickle
 import os
 import uuid
+import glob
 from bank import BankAccount
 from exceptions import *
 #
@@ -16,7 +17,9 @@ admin_logger.addHandler(admin_f_h)
 
 
 class User:
+
     username_list = []
+
     def __init__(self, username, password):
         self._validate_username(username)
         self._validate_password(password)
@@ -26,7 +29,6 @@ class User:
         self.ticket_list = []
         self.__id = uuid.uuid1()
         self.banned_user = False
-        self.__class__.username_list.append(username)
 
         logging.info('User instance created: name=%s, id=%r', self.username, self.__id)
 
@@ -135,6 +137,17 @@ class Admin(User):
             user = pickle.load(f)
         return user
 
+    def find_user_by_username(self, filename, search_path):
+        results = []
+        for root, dirname, files in os.walk(search_path):
+            print(f'{root}\n{dirname}\n{files}')
+            try:
+                with open(files, 'rb') as user:
+                    result.append(pickle.load(user).username)
+                    print(results)
+            except Exception:
+                return True
+
     def find_ticket(self, filename, search_path):
         result = []
         for root, dirname, files in os.walk(search_path):
@@ -159,6 +172,8 @@ class Admin(User):
         os.system(f'del {ticket_id}.pickle' if os.name =='nt' else f"rm {ticket_id}.pickle")
         admin_logger.info("%s ticket deleted", ticket_id)
         input()
+
+
 #
 # obj = Admin('admin', 'admin')
 # obj.save_user(path='.')

@@ -3,8 +3,8 @@ import glob
 import json
 import logging
 import os
-from metro import Admin, User, clear, ticket
-from metro import ChargebleTicket, ExpirableTicket, DisposableTicket
+from metro import Admin, User, clear, ChargebleTicket, ExpirableTicket, DisposableTicket
+
 from exceptions import *
 from pprint import pprint
 logging.basicConfig(filename='metro.log', level=logging.DEBUG,
@@ -95,6 +95,23 @@ class Menu:
                         break
         return list_of_objs
 
+    @classmethod
+    def find_user_by_username(cls, name, search_path):
+        results = []
+        for root, dirname, files in os.walk(search_path):
+            # print(f'{files}')
+            for filename in files:
+                try:
+                    with open(f"{search_path}/{filename}", 'rb') as user:
+                        a = pickle.load(user).username
+                        # print(a)
+                        if name == a:
+                            return True
+                except Exception as e :
+                    print(e)
+        return False
+
+
     @staticmethod
     def run():
         while True:
@@ -116,13 +133,18 @@ class Menu:
 
             if user_input_menu == '1':
                 clear()
-                name = input('Enter username: ')
-                password = input('Enter password: ')
-
+                name = input('Enter username: ').strip()
                 try:
+                    if Menu.find_user_by_username(name, search_path='users'):
+                        raise DuplicateUsernameError("Duplicate Username")
+                    password = input('Enter password: ')
                     user_obj = User(name, password)
                     user_obj.save_user()
                     print(f'You Are Now Part of METRO\nYour Metro ID: {user_obj.id}')
+
+                except DuplicateUsernameError as e:
+                    error_logger.error(e)
+                    print(e)
                 except AssertionError as e:
                     error_logger.error(e)
                     print(e)

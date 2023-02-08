@@ -105,3 +105,30 @@
 2023-02-08 18:25:04,211 - Length must be between 4 and 8 error_logger Length must be between 4 and 8 main
 2023-02-08 18:28:13,142 - Insufficient Funds error_logger Insufficient Funds main
 2023-02-08 18:52:05,460 - Length must be between 8 and 16 error_logger Length must be between 8 and 16 main
+2023-02-08 20:12:30,676 - Password length must be between 8 and 16 error_logger Password length must be between 8 and 16 main
+2023-02-08 20:22:02,773 - This username is already taken error_logger This username is already taken main
+2023-02-08 20:37:52,908 - This username is already taken error_logger This username is already taken main
+2023-02-08 20:38:20,236 - This username is already taken error_logger This username is already taken main
+2023-02-08 20:44:29,464 - Password length must be between 8 and 16 error_logger Password length must be between 8 and 16 main
+2023-02-08 20:47:39,396 - This username is already taken error_logger This username is already taken main
+2023-02-08 20:47:48,874 - Password length must be between 8 and 16 error_logger Password length must be between 8 and 16 main
+2023-02-08 20:48:06,685 - This username is already taken error_logger This username is already taken main
+2023-02-08 20:54:35,687 - This username is already taken error_logger This username is already taken main
+2023-02-08 21:01:54,951 - This username is already taken error_logger This username is already taken main
+2023-02-08 21:03:58,819 - This username is already taken error_logger This username is already taken main
+2023-02-08 21:04:21,918 - This username is already taken error_logger This username is already taken main
+2023-02-08 21:05:43,938 - This username is already taken error_logger This username is already taken main
+2023-02-08 21:05:49,713 - This username is already taken error_logger This username is already taken main
+2023-02-08 21:07:18,519 - Password length must be between 8 and 16 error_logger Password length must be between 8 and 16 main
+2023-02-08 21:07:42,606 - Password length must be between 8 and 16 error_logger Password length must be between 8 and 16 main
+2023-02-08 22:03:25,022 - Must contain special charachters: ('#', '@', '&', '?', '!', '*', '$') error_logger Must contain special charachters: ('#', '@', '&', '?', '!', '*', '$') main
+2023-02-08 22:43:24,923 - Must contain special charachters: ('#', '@', '&', '?', '!', '*', '$') error_logger Must contain special charachters: ('#', '@', '&', '?', '!', '*', '$') main
+2023-02-08 22:44:42,080 - Password length must be between 8 and 16 error_logger Password length must be between 8 and 16 main
+2023-02-08 22:49:37,448 - Password length must be between 8 and 16 error_logger Password length must be between 8 and 16 main
+2023-02-08 23:01:20,119 - Duplicate Username error_logger Duplicate Username main
+2023-02-08 23:01:29,038 - Duplicate Username error_logger Duplicate Username main
+2023-02-08 23:01:35,695 - Duplicate Username error_logger Duplicate Username main
+2023-02-08 23:11:36,087 - Duplicate Username error_logger Duplicate Username main
+2023-02-08 23:11:46,088 - Duplicate Username error_logger Duplicate Username main
+2023-02-08 23:11:49,112 - Duplicate Username error_logger Duplicate Username main
+2023-02-08 23:11:59,994 - Password length must be between 8 and 16 error_logger Password length must be between 8 and 16 main
