@@ -6,7 +6,7 @@ These are all the important actions users can do:</p>
 
 ## Requirements
 <p>install Requirements in command line</p>
-> <code>pip install reuiremetns.txt</code>
+> <code>pip install requiremetns.txt</code>
 
 <ul>
 <li> Admin and User
