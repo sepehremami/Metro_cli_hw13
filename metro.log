@@ -3,3 +3,11 @@
 2023-02-13 22:50:58,190 root User instance created: name=sepehr, id=UUID('8b4d500e-abd3-11ed-87ba-a41731ccaf53') human
 2023-02-13 22:53:03,671 error_logger Password length must be between 8 and 16 main
 2023-02-13 22:53:10,217 root User instance created: name=sepehr, id=UUID('d9ff062a-abd3-11ed-9640-a41731ccaf53') human
+2023-02-13 22:55:52,571 error_logger Duplicate Username main
+2023-02-13 22:55:57,200 error_logger Duplicate Username main
+2023-02-13 22:56:01,620 error_logger Ran out of input main
+2023-02-13 22:56:17,191 error_logger Password length must be between 8 and 16 main
+2023-02-13 22:56:33,280 root User instance created: name=shervin, id=UUID('53080c6a-abd4-11ed-83e7-a41731ccaf53') human
+2023-02-13 22:56:50,779 __main__ shervin has successfuly logged in main
+2023-02-13 22:56:57,202 __main__ shervin has successfuly deposited 900 main
+2023-02-13 22:57:00,680 ticket_logger ticket created ticket

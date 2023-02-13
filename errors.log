@@ -1,2 +1,6 @@
 2023-02-09 00:59:07,500 - Password length must be between 8 and 16 error_logger Password length must be between 8 and 16 main
 2023-02-13 22:53:03,671 - Password length must be between 8 and 16 error_logger Password length must be between 8 and 16 main
+2023-02-13 22:55:52,571 - Duplicate Username error_logger Duplicate Username main
+2023-02-13 22:55:57,200 - Duplicate Username error_logger Duplicate Username main
+2023-02-13 22:56:01,620 - Ran out of input error_logger Ran out of input main
+2023-02-13 22:56:17,191 - Password length must be between 8 and 16 error_logger Password length must be between 8 and 16 main
