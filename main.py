@@ -324,7 +324,7 @@ class Menu:
 
                     elif login_user_input == '4':
                         logged_in_person.save_user()
-                        logger.info("%s logged out", logged_in_person.usrename)
+                        logger.info("%s logged out", logged_in_person.username)
                         break
 
             elif user_input_menu == '3':
@@ -386,7 +386,7 @@ class Menu:
                             except IndexError as e:
                                 print("no User found!")
                                 input()
-                            user.update_user()
+                            user.save_user()
 
 
 
@@ -435,7 +435,7 @@ class Menu:
                                 input()
 
                         elif admin_input == '4':
-                            the_admin.update_user()
+                            the_admin.update_admin()
                             break
 
             elif user_input_menu == '4':

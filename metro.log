@@ -11,3 +11,64 @@
 2023-02-13 22:56:50,779 __main__ shervin has successfuly logged in main
 2023-02-13 22:56:57,202 __main__ shervin has successfuly deposited 900 main
 2023-02-13 22:57:00,680 ticket_logger ticket created ticket
+2023-02-13 22:58:56,625 root User instance created: name=alah, id=UUID('a878ab0a-abd4-11ed-8f93-a41731ccaf53') human
+2023-02-13 22:59:12,380 error_logger Duplicate Username main
+2023-02-13 22:59:22,992 error_logger Duplicate Username main
+2023-02-13 22:59:27,162 error_logger Duplicate Username main
+2023-02-13 22:59:36,652 __main__ User not found! main
+2023-02-13 22:59:46,891 __main__ alah has successfuly logged in main
+2023-02-13 22:59:51,313 __main__ alah has successfuly deposited 100 main
+2023-02-13 22:59:53,934 ticket_logger ticket created ticket
+2023-02-13 22:59:53,935 __main__ alah bought ChargebleTicket main
+2023-02-13 23:00:17,070 __main__ alah has successfuly deposited 60 main
+2023-02-13 23:00:22,791 ticket_logger ticket created ticket
+2023-02-13 23:00:22,792 __main__ alah bought DisposableTicket main
+2023-02-13 23:00:27,764 ticket_logger ticket created ticket
+2023-02-13 23:00:27,765 __main__ alah bought ExpirableTicket main
+2023-02-13 23:00:40,777 __main__ alah has taken a trip main
+2023-02-13 23:00:51,112 __main__ alah has taken a trip main
+2023-02-13 23:00:59,729 error_logger Insufficient Funds main
+2023-02-13 23:02:30,156 __main__ alah has successfuly logged in main
+2023-02-13 23:02:34,405 __main__ alah has successfuly deposited 23102 main
+2023-02-13 23:02:36,499 __main__ alah logged out main
+2023-02-13 23:02:40,882 __main__ alah has successfuly logged in main
+2023-02-13 23:02:48,683 __main__ alah logged out main
+2023-02-13 23:06:15,326 error_logger No module named 'bankAccount' main
+2023-02-13 23:06:15,326 error_logger No module named 'admin' main
+2023-02-13 23:06:15,327 error_logger Ran out of input main
+2023-02-13 23:06:15,327 __main__ admin tried to log in main
+2023-02-13 23:06:40,996 error_logger No module named 'bankAccount' main
+2023-02-13 23:06:40,996 error_logger No module named 'admin' main
+2023-02-13 23:06:40,997 error_logger Ran out of input main
+2023-02-13 23:06:40,997 __main__ admin tried to log in main
+2023-02-13 23:07:00,539 error_logger No module named 'bankAccount' main
+2023-02-13 23:07:00,539 error_logger No module named 'admin' main
+2023-02-13 23:07:00,540 error_logger Ran out of input main
+2023-02-13 23:07:00,540 __main__ admin tried to log in main
+2023-02-13 23:07:18,336 Admin_logger alah banned user human
+2023-02-13 23:07:25,284 error_logger Password length must be between 8 and 16 main
+2023-02-13 23:07:27,809 __main__ alah has successfuly logged in main
+2023-02-13 23:07:43,816 error_logger No module named 'bankAccount' main
+2023-02-13 23:07:43,817 error_logger No module named 'admin' main
+2023-02-13 23:07:43,817 error_logger Ran out of input main
+2023-02-13 23:07:43,817 __main__ admin tried to log in main
+2023-02-13 23:07:49,568 ticket_logger ticket created ticket
+2023-02-13 23:07:49,569 Admin_logger 	Type: Chargeble Ticket
+	Ticket ID: e6216158-abd5-11ed-96de-a41731ccaf53
+	Credit: 50 created human
+2023-02-13 23:08:10,459 error_logger No module named 'bankAccount' main
+2023-02-13 23:08:10,459 error_logger No module named 'admin' main
+2023-02-13 23:08:10,460 error_logger Ran out of input main
+2023-02-13 23:08:10,460 __main__ admin tried to log in main
+2023-02-13 23:10:51,200 error_logger No module named 'bankAccount' main
+2023-02-13 23:10:51,247 error_logger No module named 'admin' main
+2023-02-13 23:10:51,247 error_logger Ran out of input main
+2023-02-13 23:10:51,247 __main__ admin tried to log in main
+2023-02-13 23:11:23,052 error_logger No module named 'bankAccount' main
+2023-02-13 23:11:23,064 error_logger No module named 'admin' main
+2023-02-13 23:11:23,064 error_logger Ran out of input main
+2023-02-13 23:11:23,065 __main__ admin tried to log in main
+2023-02-13 23:11:53,564 error_logger No module named 'bankAccount' main
+2023-02-13 23:11:53,596 error_logger No module named 'admin' main
+2023-02-13 23:11:53,596 error_logger Ran out of input main
+2023-02-13 23:11:53,596 __main__ admin tried to log in main

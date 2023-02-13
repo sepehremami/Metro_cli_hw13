@@ -4,3 +4,32 @@
 2023-02-13 22:55:57,200 - Duplicate Username error_logger Duplicate Username main
 2023-02-13 22:56:01,620 - Ran out of input error_logger Ran out of input main
 2023-02-13 22:56:17,191 - Password length must be between 8 and 16 error_logger Password length must be between 8 and 16 main
+2023-02-13 22:59:12,380 - Duplicate Username error_logger Duplicate Username main
+2023-02-13 22:59:22,992 - Duplicate Username error_logger Duplicate Username main
+2023-02-13 22:59:27,162 - Duplicate Username error_logger Duplicate Username main
+2023-02-13 23:00:59,729 - Insufficient Funds error_logger Insufficient Funds main
+2023-02-13 23:06:15,326 - No module named 'bankAccount' error_logger No module named 'bankAccount' main
+2023-02-13 23:06:15,326 - No module named 'admin' error_logger No module named 'admin' main
+2023-02-13 23:06:15,327 - Ran out of input error_logger Ran out of input main
+2023-02-13 23:06:40,996 - No module named 'bankAccount' error_logger No module named 'bankAccount' main
+2023-02-13 23:06:40,996 - No module named 'admin' error_logger No module named 'admin' main
+2023-02-13 23:06:40,997 - Ran out of input error_logger Ran out of input main
+2023-02-13 23:07:00,539 - No module named 'bankAccount' error_logger No module named 'bankAccount' main
+2023-02-13 23:07:00,539 - No module named 'admin' error_logger No module named 'admin' main
+2023-02-13 23:07:00,540 - Ran out of input error_logger Ran out of input main
+2023-02-13 23:07:25,284 - Password length must be between 8 and 16 error_logger Password length must be between 8 and 16 main
+2023-02-13 23:07:43,816 - No module named 'bankAccount' error_logger No module named 'bankAccount' main
+2023-02-13 23:07:43,817 - No module named 'admin' error_logger No module named 'admin' main
+2023-02-13 23:07:43,817 - Ran out of input error_logger Ran out of input main
+2023-02-13 23:08:10,459 - No module named 'bankAccount' error_logger No module named 'bankAccount' main
+2023-02-13 23:08:10,459 - No module named 'admin' error_logger No module named 'admin' main
+2023-02-13 23:08:10,460 - Ran out of input error_logger Ran out of input main
+2023-02-13 23:10:51,200 - No module named 'bankAccount' error_logger No module named 'bankAccount' main
+2023-02-13 23:10:51,247 - No module named 'admin' error_logger No module named 'admin' main
+2023-02-13 23:10:51,247 - Ran out of input error_logger Ran out of input main
+2023-02-13 23:11:23,052 - No module named 'bankAccount' error_logger No module named 'bankAccount' main
+2023-02-13 23:11:23,064 - No module named 'admin' error_logger No module named 'admin' main
+2023-02-13 23:11:23,064 - Ran out of input error_logger Ran out of input main
+2023-02-13 23:11:53,564 - No module named 'bankAccount' error_logger No module named 'bankAccount' main
+2023-02-13 23:11:53,596 - No module named 'admin' error_logger No module named 'admin' main
+2023-02-13 23:11:53,596 - Ran out of input error_logger Ran out of input main

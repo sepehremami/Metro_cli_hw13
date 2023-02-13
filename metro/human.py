@@ -104,8 +104,8 @@ class User:
             return self.ticket_list[index]
         return self.ticket_list
 
-    def update_user(self):
-        with open(f"users/{self.id}.pickle", 'wb') as user:
+    def update_admin(self):
+        with open(f"admins/{self.id}.pickle", 'wb') as user:
             pickle.dump(self, user)
 
     def save_user(self):
