@@ -15,15 +15,6 @@ These are all the important actions users can do:</p>
 <li> bank account
 </ul>
 
-Select one of the below<br>
-{<br>
-1: Register New User<br>
-2: Log in as User<br>
-3: Log in as Administrator<br>
-4: Exit<br>
-}<br>
-Choose:<br>
-</p>
-<p>==========================================</p><br>
+
 
 
