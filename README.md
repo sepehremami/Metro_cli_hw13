@@ -14,14 +14,7 @@ These are all the important actions users can do:</p>
 <li> Menu
 <li> bank account
 </ul>
-<p>==========================================</p>
-<p><br>
- ____  __      _<br>
-|  \/  | ___| |_ _ __ ___<br>
-| |\/| |/ _ \ __| '__/ _<br>
-| |  | |  __/ |_| | | (_) |<br>
-|_|  |_|\___|\__|_|  \___/<br>
-<br>
+
 Select one of the below<br>
 {<br>
 1: Register New User<br>
