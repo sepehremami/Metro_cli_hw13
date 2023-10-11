@@ -113,6 +113,7 @@ class Menu:
 
     @staticmethod
     def run():
+        print("conflict")
         while True:
             clear()
             print(menu)
